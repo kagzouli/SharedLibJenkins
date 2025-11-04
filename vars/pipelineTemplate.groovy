@@ -19,9 +19,9 @@ def call(Map args = [:]) {
 
         stage('Build') {
             script {
-                steps.bat "cd ${subRepository}"
-                steps.bat "dir"
-                Maven.cmdInstall(this)
+                steps.dir(subRepository){
+                    Maven.cmdInstall(this)
+                }
             }
         }
     }
