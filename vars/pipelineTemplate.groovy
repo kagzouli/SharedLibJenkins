@@ -13,7 +13,7 @@ def call(Map config = [:]) {
             }
 
             stage('Build') {
-                steps {
+                script {
                     Maven.cmdInstall(this)
                 }
             }
