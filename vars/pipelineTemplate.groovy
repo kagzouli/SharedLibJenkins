@@ -1,10 +1,7 @@
 import com.exakaconsulting.Maven
 
 def call() {
-    return pipeline {
-        agent any
-
-        stages {
+    node {
             stage('Checkout') {
                 steps {
                     checkout scm
@@ -19,15 +16,7 @@ def call() {
                     }
                 }
             }
-        }
-
-        post {
-            success {
-                echo 'Pipeline completed successfully!'
-            }
-            failure {
-                echo 'Pipeline failed!'
-            }
-        }
     }
+
+      
 }
