@@ -14,7 +14,7 @@ def call(Map args = [:]) {
            
 
             git branch: gitBranch, url: gitUrl
-            sh "cd application/spring-java"
+            steps.bat "cd application/spring-java"
 
         }
 
