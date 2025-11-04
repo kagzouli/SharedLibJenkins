@@ -14,7 +14,7 @@ def call(Map config = [:]) {
 
             stage('Build') {
                 steps {
-                    Maven.cmdInstall()
+                    Maven.cmdInstall(this)
                 }
             }
         }
