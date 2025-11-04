@@ -1,7 +1,7 @@
 import com.exakaconsulting.Maven
 
-def call(Map config = [:]) {
-    pipeline {
+def call() {
+    return pipeline {
         agent any
 
         stages {
@@ -19,7 +19,7 @@ def call(Map config = [:]) {
                     }
                 }
             }
-        }7
+        }
 
         post {
             success {
