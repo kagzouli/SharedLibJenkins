@@ -4,4 +4,4 @@ pipelineTemplate(
     gitUrl: 'https://github.com/kagzouli/StationDemoProject.git',
     gitBranch: 'main',
     subRepository: 'application\\spring-java'
-)4
+)
