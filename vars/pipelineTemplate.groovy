@@ -4,6 +4,7 @@ def call(Map args = [:]) {
 
     def gitUrl = args.get('gitUrl', '')
     def gitBranch = args.get('gitBranch', 'main')
+    def subRepository = args.get('subRepository', 'main')
 
      if (!gitUrl) {
         error "Git URL must be specified!"
@@ -14,12 +15,11 @@ def call(Map args = [:]) {
            
 
             git branch: gitBranch, url: gitUrl
-            steps.bat "cd application/spring-java"
-
         }
 
         stage('Build') {
             script {
+                steps.bat "cd ${subRepository}"
                 Maven.cmdInstall(this)
             }
         }
