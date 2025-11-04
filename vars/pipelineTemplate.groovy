@@ -1,11 +1,17 @@
 import com.exakaconsulting.Maven
 
-def call(String gitUrl = '', String gitBranch = 'main') {
+def call(Map args = [:]) {
+
+    def gitUrl = args.get('gitUrl', '')
+    def gitBranch = args.get('gitBranch', 'main')
+
+     if (!gitUrl) {
+        error "Git URL must be specified!"
+    }
+
     node {
         stage('Checkout') {
-            if (!gitUrl) {
-                error "Git URL must be specified!"
-            }
+           
 
             git branch: gitBranch, url: gitUrl
             sh "cd application/spring-java"
