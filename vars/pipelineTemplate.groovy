@@ -9,6 +9,10 @@ def call(Closure body) {
     def gitBranch = config.gitBranch
     def subRepository = config.subRepository
 
+    echo "Git URL: ${gitUrl}"
+    echo "Branch: ${gitBranch}"
+    echo "Sub-repository: ${subRepository}"
+
      if (!gitUrl) {
         error "Git URL must be specified!"
     }
