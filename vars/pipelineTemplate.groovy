@@ -1,10 +1,13 @@
 import com.exakaconsulting.Maven
 
-def call(Map args = [:]) {
+def call(Closure body) {
 
-    def gitUrl = args.get('gitUrl', '')
-    def gitBranch = args.get('gitBranch', 'main')
-    def subRepository = args.get('subRepository', 'main')
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
+    def gitUrl = config.gitUrl
+    def gitBranch = config.gitBranch
+    def subRepository = config.subRepository
 
      if (!gitUrl) {
         error "Git URL must be specified!"
