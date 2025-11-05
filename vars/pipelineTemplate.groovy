@@ -25,8 +25,6 @@ def call(Closure body) {
 
     node {
         stage('Checkout') {
-           
-
             git branch: gitBranch, url: gitUrl
         }
 
