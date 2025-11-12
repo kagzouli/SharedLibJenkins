@@ -7,6 +7,8 @@ def call(Closure body) {
     body.delegate = config
     body()      // 👈 this line is essential — it executes the closure
 
+    println("JENKINS_SERVICE_NAME : ${env.JENKINS_SERVICE_NAME}")
+
     def gitUrl = config.gitUrl
     def gitBranch = config.gitBranch
     def subRepository = config.subRepository
