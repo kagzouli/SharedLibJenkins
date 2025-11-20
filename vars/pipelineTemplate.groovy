@@ -25,6 +25,8 @@ def call(Closure body) {
         error "SubRepository must be specified"
     }
 
+    println("Branche name : ${env.BRANCH_NAME}")
+
     node {
         stage('Checkout') {
             git branch: gitBranch, url: gitUrl

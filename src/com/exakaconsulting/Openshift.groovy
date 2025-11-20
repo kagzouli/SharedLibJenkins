@@ -13,7 +13,6 @@ class Openshift {
     
     /********************* PrepareBuild     *************************/
     def preparedBuild(){
-        println("Branche name : ${env.BRANCH_NAME}")
         def step_openshift = steps.openshift
         //steps.bat "openshift"
         step_openshift.withCluster(cluster_name) {
